@@ -700,6 +700,7 @@ namespace CacheeServer
             DataTable table = new DataTable();
             SqlConnection connection = new SqlConnection(GetSqlconn());
             SqlCommand sqlcom = new SqlCommand("K_SelectUp", connection);
+            sqlcom.CommandTimeout = 150;
             sqlcom.CommandType = CommandType.StoredProcedure;
             SqlParameter parameter = sqlcom.Parameters.Add("@Type", SqlDbType.Int);
             SqlParameter parameter2 = sqlcom.Parameters.Add("@MacId", SqlDbType.Int);
