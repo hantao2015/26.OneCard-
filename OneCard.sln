@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneCard", "OneCard.csproj", "{653F4FE1-1EC1-4547-9D6A-D875AEEBE999}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClsSecurity", "ClsSecurity\ClsSecurity.csproj", "{0FC522FA-7FFB-48F0-8B0A-0DA4FF50EA8E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RealsunMiniServerGuard", "..\RealsunMiniServerGuard\RealsunMiniServerGuard.vbproj", "{E3018A86-CE9B-4A33-B774-691C3D31730A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{653F4FE1-1EC1-4547-9D6A-D875AEEBE999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{653F4FE1-1EC1-4547-9D6A-D875AEEBE999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{653F4FE1-1EC1-4547-9D6A-D875AEEBE999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{653F4FE1-1EC1-4547-9D6A-D875AEEBE999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC522FA-7FFB-48F0-8B0A-0DA4FF50EA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC522FA-7FFB-48F0-8B0A-0DA4FF50EA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC522FA-7FFB-48F0-8B0A-0DA4FF50EA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC522FA-7FFB-48F0-8B0A-0DA4FF50EA8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3018A86-CE9B-4A33-B774-691C3D31730A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3018A86-CE9B-4A33-B774-691C3D31730A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3018A86-CE9B-4A33-B774-691C3D31730A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3018A86-CE9B-4A33-B774-691C3D31730A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

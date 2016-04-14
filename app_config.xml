@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+    <SYS_CONFIG_DEBUG DESC="下述删除类选项会在每次WEB重启时清空为0">
+        <BATCH_DEL_RESDATA DESC="允许admin批量删除资源数据" ISSWITCH="1">0</BATCH_DEL_RESDATA>
+        <DELETE_RES_WITH_DATA DESC="允许admin删除有数据的资源" ISSWITCH="1">0</DELETE_RES_WITH_DATA>
+        <DELETE_RES_WITH_SUBRES DESC="允许admin删除有子资源的资源" ISSWITCH="1">0</DELETE_RES_WITH_SUBRES>
+        <ALLOW_DELETE_SYSCOLUMN DESC="允许admin删除系统级字段" ISSWITCH="1">0</ALLOW_DELETE_SYSCOLUMN>
+        <SHOW_UPDATE_ABSOLUTE_LOCK_RECORD DESC="允许更新绝对锁定的记录 （在批量修改列和批量保存数据界面上显示）" ISSWITCH="1">0</SHOW_UPDATE_ABSOLUTE_LOCK_RECORD>
+        <RECORDLOCK_UNLOCK_SELFTABLE DESC="本表记录锁定无效" ISSWITCH="1">0</RECORDLOCK_UNLOCK_SELFTABLE>
+        <RECORDLOCK_UNLOCK_SELFTABLE_TIME DESC="本表记录时间锁定无效" ISSWITCH="1">0</RECORDLOCK_UNLOCK_SELFTABLE_TIME>
+        <RECORDLOCK_UNLOCK_OUTERTABLE DESC="表间记录锁定无效" ISSWITCH="1">0</RECORDLOCK_UNLOCK_OUTERTABLE>
+        <RECORDLOCK_UNLOCK_SELFTABLE_ABSOLUTE DESC="本表记录绝对锁定无效" ISSWITCH="1">0</RECORDLOCK_UNLOCK_SELFTABLE_ABSOLUTE>
+        <LOG_RECORD_SQL DESC="在日志中记录SQL语句" ISSWITCH="1">0</LOG_RECORD_SQL>
+        <COLUMN_USAGE_CHECK_SOURCECODE_FOLDER DESC="检查表格和字段使用情况时同时检查源代码的根路径，譬如：d:\f3\code\web\cmsweb\client"></COLUMN_USAGE_CHECK_SOURCECODE_FOLDER>
+        <COLUMN_USAGE_CHECK_REPORTS_FOLDER DESC="检查表格和字段使用情况时同时检查客户报表的根路径，譬如：d:\f3\reports"></COLUMN_USAGE_CHECK_REPORTS_FOLDER>
+    </SYS_CONFIG_DEBUG>
+    <SYS_CONFIG DESC="主配置信息" SHOWENABLE="0">
+        <DOC_FTSEARCH_DOCTYPE DESC="支持全文检索的文档类型">doc,txt,htm,html</DOC_FTSEARCH_DOCTYPE>
+        <FILE_NOZIP_SIZE DESC="文件运行压缩的最小SIZE">1000</FILE_NOZIP_SIZE>
+        <FILE_NOZIP_EXT DESC="无需压缩的文件类型">zip,rar,arj,tar,cab,ace,uc2,lha,jpg,jpeg,jpe,pdf,pdp,tif,gif,ico,png,mpg,mpeg,rm,wmv,dll,exe,bin,ocx,dwg,dwf</FILE_NOZIP_EXT>
+        <FILE_MULTIMEDIA_EXT DESC="多媒体文件类型">jpg,jpeg,jpe,pdf,pdp,gif,ico,png,mpg,mpeg,rm,wmv</FILE_MULTIMEDIA_EXT>
+        <FUNC_SEP></FUNC_SEP>
+        <PAGE_NO_TIMEOUT DESC="无需超时控制的页面。必须以逗号开始和结束。">,F3Title.aspx,F3Title200.aspx,F3Tree.aspx,</PAGE_NO_TIMEOUT>
+        <DYNAMIC_LOGIN_URL DESC="允许动态登录的页面。必须以逗号开始和结束。">,F3Edit.aspx,F3Edit200.aspx,F3DepartmentSelect.aspx,F3DepartmentPromptSelect.aspx,F3UserPromptSelect.aspx,FieldGetAdvDictionary.aspx,DocOpen.aspx,</DYNAMIC_LOGIN_URL>
+        <FUNC_SEP></FUNC_SEP>
+        <SYSDB_TYPE DESC="0：SQL数据库；1：纯ACCESS数据库；2：ASP服务数据库架构">0</SYSDB_TYPE>
+    </SYS_CONFIG>
+    <SYS_ONLINEVIEW_FILES DESC="可在线浏览的文档类型，以及对应的处理页面" SHOWENABLE="0">
+        <FILE_ONLINEVIEW DESC="支持在线只读浏览的文件类型">doc,xls,ppt,pdf,dwg</FILE_ONLINEVIEW>
+        <FILETYPE_WORD DESC="WORD文档在线浏览页面" FILE_TYPE="DOC">/cmsweb/cmsdocument/DocViewOffice.aspx</FILETYPE_WORD>
+        <FILETYPE_EXCEL DESC="EXCEL文档在线浏览页面" FILE_TYPE="XLS">/cmsweb/cmsdocument/DocViewOffice.aspx</FILETYPE_EXCEL>
+        <FILETYPE_POWERPOINT DESC="POWERPOINT文档在线浏览页面" FILE_TYPE="PPT">/cmsweb/cmsdocument/DocViewOffice.aspx</FILETYPE_POWERPOINT>
+        <FILETYPE_PDF DESC="PDF文档在线浏览页面" FILE_TYPE="PDF">/cmsweb/cmsdocument/DocViewPdf.aspx</FILETYPE_PDF>
+        <FILETYPE_DWG DESC="DWG文档在线浏览页面" FILE_TYPE="DWG">/cmsweb/cmsdocument/DocViewDwg.aspx</FILETYPE_DWG>
+    </SYS_ONLINEVIEW_FILES>
+    <TREEVIEW_ICON DESC="资源树结构节点图标设置 （暂时无用）" SHOWENABLE="0">
+        <ICON_ENTERPRISE DESC="企业根节点图标">/cmsweb/images/tree/enterprise.gif</ICON_ENTERPRISE>
+        <ICON_DEP_REAL DESC="部门节点图标">/cmsweb/images/tree/dep_real.gif</ICON_DEP_REAL>
+        <ICON_DEP_VIRTUAL DESC="虚拟部门节点图标">/cmsweb/images/tree/dep_virtual.gif</ICON_DEP_VIRTUAL>
+        <ICON_EMP DESC="用户管理节点图标">/cmsweb/images/tree/dep_real.gif</ICON_EMP>
+        <ICON_RES_EMPTY DESC="空节点图标">/cmsweb/images/tree/res_empty.gif</ICON_RES_EMPTY>
+        <ICON_RES_DOC DESC="文档资源节点图标">/cmsweb/images/tree/res_doc.gif</ICON_RES_DOC>
+        <ICON_RES_DOC_JC DESC="继承型文档资源节点图标">/cmsweb/images/tree/res_doc_jc.gif</ICON_RES_DOC_JC>
+        <ICON_RES_TWOD DESC="二维表资源节点图标">/cmsweb/images/tree/res_twod.gif</ICON_RES_TWOD>
+        <ICON_RES_OUT DESC="外部SQL表单节点图标">/cmsweb/images/tree/res_out.gif</ICON_RES_OUT>
+        <ICON_RES_TWOD_JC DESC="继承型二维表资源节点图标">/cmsweb/images/tree/res_twod_jc.gif</ICON_RES_TWOD_JC>
+        <ICON_RES_URL DESC="定制网页的节点图标">/cmsweb/images/tree/res_twod.gif</ICON_RES_URL>
+        <ICON_RES_WORKFLOW DESC="工作流资源节点图标">/cmsweb/images/tree/res_workflow.gif</ICON_RES_WORKFLOW>
+    </TREEVIEW_ICON>
+    <RESOURCE_TABLES DESC="定义资源相关的表结构" SHOWENABLE="0">
+        <INIT_TABLE_2D>
+            <![CDATA[
+            CREATE TABLE [dbo].[SAMPLE_TABLE] (
+            [REC_ID] [bigint] NOT NULL ,
+            [REC_RESID] [bigint] NULL ,
+            [REC_CRTID] [nvarchar] (20) NULL ,
+            [REC_CRTTIME] [datetime] NULL ,
+            [REC_EDTID] [nvarchar] (20) NULL ,
+            [REC_EDTTIME] [datetime] NULL ,
+            [REC_SH] [nvarchar] (1) NULL ,
+            [REC_SHNAME] [nvarchar] (50) NULL ,
+            [REC_SHTIME] [datetime] NULL ,
+            [REC_ON] [nvarchar] (1) NULL ,
+            [REC_CLOSE] [nvarchar] (1) NULL ,
+            [REC_OFF] [nvarchar] (1) NULL ,
+            [REC_DATE] [datetime] NULL ,
+            [REC_YEAR] [int] NULL ,
+            [REC_QUARTER] [int] NULL ,
+            [REC_MONTH] [int] NULL ,
+            [REC_WEEK] [int] NULL ,
+            [REC_YM] [int] NULL ,
+            [REC_DEP1] [nvarchar] (15) NULL ,
+            [REC_DEP2] [nvarchar] (15) NULL ,
+            [REC_DEP3] [nvarchar] (15) NULL ,
+            [REC_DEP4] [nvarchar] (15) NULL 
+            ) ON [PRIMARY]
+
+            ALTER TABLE [dbo].[SAMPLE_TABLE] WITH NOCHECK ADD 
+                CONSTRAINT [PK_SAMPLE_TABLE] PRIMARY KEY  CLUSTERED 
+                (
+                    [REC_ID]
+                )  ON [PRIMARY] 
+            
+             CREATE  INDEX [IX_SAMPLE_TABLE] ON [dbo].[SAMPLE_TABLE]([REC_RESID]) ON [PRIMARY]
+             CREATE  INDEX [IX_SAMPLE_TABLE_1] ON [dbo].[SAMPLE_TABLE]([REC_CRTTIME]) ON [PRIMARY]
+        ]]>
+        </INIT_TABLE_2D>
+        <INIT_2DTABLE_COLSHOW>
+            <![CDATA[
+        ]]>
+        </INIT_2DTABLE_COLSHOW>
+        <INIT_2DTABLE_COLDEF>
+            <![CDATA[
+        ]]>
+        </INIT_2DTABLE_COLDEF>
+        <INIT_TABLE_DOC>
+            <![CDATA[
+            CREATE TABLE [dbo].[SAMPLE_TABLE] (
+            [REC_ID] [bigint] NOT NULL ,
+            [REC_DOCID] [bigint] NULL ,
+            [REC_RESID] [bigint] NULL ,
+            [REC_SH] [nvarchar] (1) NULL ,
+            [REC_SHNAME] [nvarchar] (50) NULL ,
+            [REC_SHTIME] [datetime] NULL ,
+            [REC_ON] [nvarchar] (1) NULL ,
+            [REC_CLOSE] [nvarchar] (1) NULL ,
+            [REC_OFF] [nvarchar] (1) NULL ,
+            [REC_DATE] [datetime] NULL ,
+            [REC_YEAR] [int] NULL ,
+            [REC_QUARTER] [int] NULL ,
+            [REC_MONTH] [int] NULL ,
+            [REC_WEEK] [int] NULL ,
+            [REC_YM] [int] NULL ,
+            [REC_DEP1] [nvarchar] (15) NULL ,
+            [REC_DEP2] [nvarchar] (15) NULL ,
+            [REC_DEP3] [nvarchar] (15) NULL ,
+            [REC_DEP4] [nvarchar] (15) NULL 
+            ) ON [PRIMARY]
+            
+            ALTER TABLE [dbo].[SAMPLE_TABLE] WITH NOCHECK ADD 
+                CONSTRAINT [PK_SAMPLE_TABLE] PRIMARY KEY  CLUSTERED 
+                (
+                    [REC_ID]
+                )  ON [PRIMARY] 
+
+             CREATE  INDEX [IX_SAMPLE_TABLE] ON [dbo].[SAMPLE_TABLE]([REC_RESID]) ON [PRIMARY]
+        ]]></INIT_TABLE_DOC>
+        <!-- 创建表单时需要自动创建的字段定义，重要注意：SAMPLE_ID1 ... SAMPLE_IDn 必须从1开始的连续计数 
+             文档表列表字段名称不能随便修改，因为已经固写入代码中(WebTools.vb)
+        -->
+        <INIT_DOCTABLE_COLDEF>
+            <![CDATA[
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID1, SAMPLE_RESID, 'DOC2_NAME', '文档名', 'Name', 1, 150, 1, 1);;
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID2, SAMPLE_RESID, 'DOC2_EXT', '类型', 'Type', 1, 10, 1, 1);;
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID3, SAMPLE_RESID, 'DOC2_SIZE', '大小', 'Size', 3, 8, 1, 1);;
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID3, SAMPLE_RESID, 'DOC2_COMPRESSED_RATE', '压缩率', 'Zip', 3, 8, 1, 1);;
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID4, SAMPLE_RESID, 'DOC2_STATUS', '状态', 'Status', 1, 5, 1, 1);;
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID5, SAMPLE_RESID, 'DOC2_EDTID', '修改用户', 'User', 1, 20, 1, 1);;
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID6, SAMPLE_RESID, 'DOC2_EDTTIME', '修改时间', 'Time', 4, 8, 1, 1);;
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID7, SAMPLE_RESID, 'DOC2_KEYWORDS', '关键字', 'Keyword', 1, 200, 0, 1);;
+            INSERT INTO CMS_TABLE_DEFINE (CD_ID, CD_RESID, CD_COLNAME, CD_DISPNAME, CD_DISPNAME_EN, CD_TYPE, CD_SIZE, CD_IS_NOINPUT, CD_IS_SYSFIELD) VALUES(SAMPLE_ID8, SAMPLE_RESID, 'DOC2_COMMENTS', '备注', 'Comments', 1, 200, 0, 1);;
+        ]]></INIT_DOCTABLE_COLDEF>
+        <!-- 创建表单时需要自动创建的字段显示设置-->
+        <INIT_DOCTABLE_COLSHOW><![CDATA[
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_NAME', 1, 200, 1, 0, '', '', '');;
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_EXT', 6, 40, 1, 0, '', '', '');;
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_SIZE', 11, 70, 1, 2, '', '', '');;
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_COMPRESSED_RATE', 16, 70, 0, 2, '', '%', '');;
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_STATUS', 21, 40, 1, 2, '', '', '');;
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_EDTID', 26, 70, 1, 2, '', '', '');;
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_EDTTIME', 31, 100, 1, 2, '', '', '{0:yy-MM-dd HH:mm}');;
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_KEYWORDS', 36, 150, 1, 0, '', '', '');;
+            INSERT INTO CMS_TABLE_SHOW (CS_RESID, CS_COLNAME, CS_SHOW_ORDER, CS_SHOW_WIDTH, CS_SHOW_ENABLE, CS_ALIGN, CS_PREFIX, CS_SUFFIX, CS_FORMAT) VALUES(SAMPLE_RESID, 'DOC2_COMMENTS', 41, 100, 1, 0, '', '', '');;
+        ]]></INIT_DOCTABLE_COLSHOW>
+        <INIT_TABLE_OUT><![CDATA[
+        ]]></INIT_TABLE_OUT>
+        <INIT_OUTTABLE_COLDEF><![CDATA[
+        ]]></INIT_OUTTABLE_COLDEF>
+        <INIT_OUTTABLE_COLSHOW><![CDATA[
+        ]]></INIT_OUTTABLE_COLSHOW>
+    </RESOURCE_TABLES>
+    <OEM_CONFIG DESC="OEM配置信息" SHOWENABLE="0">
+        <OEM_CLIENT_ID DESC="OEM客户的唯一值，如：corpfuture">corpfuture</OEM_CLIENT_ID>
+    </OEM_CONFIG>
+</CONFIG>

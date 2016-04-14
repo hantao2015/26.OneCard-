@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+    <SYS_DATABASE DESC="数据库配置信息">
+        <DATABASETYPE DESC="数据库HOST 0:mssql 3:oralce">0</DATABASETYPE>
+        <DATABASECONTYPE DESC="数据库连接方式 1:oledbcon 2:oracleclientcon">1</DATABASECONTYPE>
+        <HOST DESC="数据库HOST">127.0.0.1</HOST>
+        <PORT DESC="数据库PORT">1433</PORT>
+        <DBCMS DESC="内容数据库名称">v2hr1</DBCMS>
+        <DBDOC DESC="文档数据库名称">finisarhr2</DBDOC>
+        <TIMEOUT DESC="数据库连接超时（秒）">15</TIMEOUT>
+        <SERVICENAME DESC="Oracle 数据库服务名称">orcl</SERVICENAME>
+    </SYS_DATABASE>
+    <SYS_CLIENT SHOWENABLE="0">
+        <IMPLEMENT_CODE SHOWENABLE="0"></IMPLEMENT_CODE>
+        <ANONYMOUS_CODE SHOWENABLE="0"></ANONYMOUS_CODE>
+        <DBCMSUSER_NAME DESC="数据库访问用户" SHOWENABLE="0"></DBCMSUSER_NAME>
+        <DBCMSUSER_CODE DESC="加密后的数据库访问用户密码" SHOWENABLE="0"></DBCMSUSER_CODE>
+    </SYS_CLIENT>
+</CONFIG>
