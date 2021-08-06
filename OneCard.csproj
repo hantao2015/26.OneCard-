@@ -15,7 +15,7 @@
     <OutputType>WinExe</OutputType>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>0.0</OldToolsVersion>
@@ -34,6 +34,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -64,19 +65,28 @@
   <PropertyGroup>
     <StartupObject>OneCard.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="hsopPlatform">
-      <HintPath>..\..\..\..\..\..\04.RealsunPlatform\08.RispSourceMiniUI\RispBsUI\rispweb\bin\hsopPlatform.dll</HintPath>
-    </Reference>
-    <Reference Include="HsPlatform">
-      <HintPath>..\..\..\..\..\..\04.RealsunPlatform\08.RispSourceMiniUI\RispBsUI\rispweb\bin\HsPlatform.dll</HintPath>
-    </Reference>
-    <Reference Include="LibClsAttDevice">
-      <HintPath>bin\LibClsAttDevice.dll</HintPath>
-    </Reference>
-    <Reference Include="LibDoorManage">
-      <HintPath>bin\LibDoorManage.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -143,6 +153,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibDoorManage\LibDoorManage.csproj">
+      <Project>{6701a648-3a03-450a-afe5-3bb666a1280d}</Project>
+      <Name>LibDoorManage</Name>
+    </ProjectReference>
     <ProjectReference Include="ClsSecurity\ClsSecurity.csproj">
       <Project>{0fc522fa-7ffb-48f0-8b0a-0da4ff50ea8e}</Project>
       <Name>ClsSecurity</Name>
@@ -161,6 +175,8 @@
     <Content Include="app_msg_en.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="OneCard\hsopPlatform.dll" />
+    <Content Include="OneCard\HsPlatform.dll" />
     <Content Include="XMLFile1.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

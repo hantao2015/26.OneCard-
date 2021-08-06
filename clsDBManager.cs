@@ -844,6 +844,38 @@ namespace CacheeServer
             }
             return dataTable;
         }
+        public static DataTable Select_HR_Machines_new(string MachineAlias_, string ID_, string Enabled_, int Type_, string AreaID_)
+        {
+            DataTable dataTable = new DataTable();
+            SqlConnection connection = new SqlConnection(GetSqlconn());
+            SqlCommand selectCommand = new SqlCommand("Select_HR_MachinesNew", connection);
+            selectCommand.CommandType = CommandType.StoredProcedure;
+            SqlParameter parameter = selectCommand.Parameters.Add("@MachineAlias", SqlDbType.NVarChar);
+            SqlParameter parameter2 = selectCommand.Parameters.Add("@ID", SqlDbType.NVarChar);
+            SqlParameter parameter3 = selectCommand.Parameters.Add("@Enabled", SqlDbType.NVarChar);
+            SqlParameter parameter4 = selectCommand.Parameters.Add("@Type", SqlDbType.Int);
+            SqlParameter parameter5 = selectCommand.Parameters.Add("@AreaID", SqlDbType.NVarChar);
+            parameter.Value = MachineAlias_;
+            parameter2.Value = ID_;
+            parameter3.Value = Enabled_;
+            parameter4.Value = Type_;
+            parameter5.Value = AreaID_;
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(selectCommand);
+                connection.Open();
+                adapter.Fill(dataTable);
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dataTable;
+        }
 
         public static DataTable Select_SmallUser(string UserSS__, int Tyle_, string deptcode_, int deptChild_, string userKeys_)
         {

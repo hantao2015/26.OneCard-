@@ -3,7 +3,7 @@
     using CacheeServer;
     using ClsSecurity;
 
-    using LibClsAttDevice;
+   // using LibClsAttDevice;
     using LibDoorManage;
     using System;
     using System.ComponentModel;
@@ -12,8 +12,8 @@
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
-    using hsopPlatform;
-    using HS.Platform;
+   // using hsopPlatform;
+   // using HS.Platform;
     using System.Collections;
     using System.Diagnostics;
     public class Form1 : Form
@@ -29,15 +29,17 @@
         public bool ISStop = false;
         public bool IsUpInfo = false;
         private int keys = 0;
-        private LibClsAttDevice libClsAtt;
+      //  private LibClsAttDevice libClsAtt;
         private LibDoorManage LibDM = new LibDoorManage();
         private string Message = "";
         private string message_ = "";
         private string resultFlag_ = "true";
         private string resultMessage_ = "";
         private Thread StartAutoTransDataThread;
+       // public void autoDownloadRecordInTimelist()
+        private Thread StartautoDownloadRecordInTimelist;
         private string subject_ = "";
-        private CmsPassport pst;
+       // private CmsPassport pst;
         public Form1()
         {
             this.InitializeComponent();
@@ -50,6 +52,8 @@
             this.CheckLineThread.IsBackground = true;
             this.StartAutoTransDataThread = new Thread(new ThreadStart(this.StartAutoTransDatas));
             this.StartAutoTransDataThread.IsBackground = true;
+            this.StartautoDownloadRecordInTimelist = new Thread(new ThreadStart(this.autoDownloadRecordInTimelist));
+            this.StartautoDownloadRecordInTimelist.IsBackground = true;
             this.CheckLineThread.Start();
             this.StartAutoTransDataThread.Start();
             this.button1.Enabled = false;
@@ -171,59 +175,59 @@
         }
         public void logRealsun(DataTable dt, string source, string type, string mchid)
         {
-            Int64  resid = 0;
-            Hashtable hs = new Hashtable();
-            CmsTableParam cp = new CmsTableParam();
-             switch (source) 
-             {
-                 default:
-                     break;
-                 case "namelist":
-                     resid = 493817252015;
-                     for (int k = 0; k < dt.Rows.Count; k++)
-                     {
-                        hs.Clear ();
-                        hs.Add("CardNo", dt.Rows[k][0]);
-                        hs.Add("Pin", dt.Rows[k][1]);
-                        hs.Add("Groups", dt.Rows[k][3]);
-                        hs.Add("StartTime", dt.Rows[k][4]);
-                        hs.Add("EndTime", dt.Rows[k][5]);
-                        hs.Add("types", type);
-                        hs.Add("mchid", mchid);
-                        try
-                        {
+            //Int64  resid = 0;
+            //Hashtable hs = new Hashtable();
+            //CmsTableParam cp = new CmsTableParam();
+            // switch (source) 
+            // {
+            //     default:
+            //         break;
+            //     case "namelist":
+            //         resid = 493817252015;
+            //         for (int k = 0; k < dt.Rows.Count; k++)
+            //         {
+            //            hs.Clear ();
+            //            hs.Add("CardNo", dt.Rows[k][0]);
+            //            hs.Add("Pin", dt.Rows[k][1]);
+            //            hs.Add("Groups", dt.Rows[k][3]);
+            //            hs.Add("StartTime", dt.Rows[k][4]);
+            //            hs.Add("EndTime", dt.Rows[k][5]);
+            //            hs.Add("types", type);
+            //            hs.Add("mchid", mchid);
+            //            try
+            //            {
 
-                            CmsTable.AddRecord(ref pst, resid, ref hs, ref cp);
-                        }
-                        catch (Exception ex)
-                        {
-                            SLog.Err("namelist Error", ref ex);
-                        }
-                     }
-                     break;
-                 case "authoritylist":
-                     resid=493817710407;
-                     for (int k = 0; k < dt.Rows.Count; k++)
-                     {
-                         hs.Clear();
+            //                CmsTable.AddRecord(ref pst, resid, ref hs, ref cp);
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                SLog.Err("namelist Error", ref ex);
+            //            }
+            //         }
+            //         break;
+            //     case "authoritylist":
+            //         resid=493817710407;
+            //         for (int k = 0; k < dt.Rows.Count; k++)
+            //         {
+            //             hs.Clear();
                        
-                         hs.Add("Pin", dt.Rows[k][0]);
-                         hs.Add("AuthorizeTimezoneId", dt.Rows[k][1]);
-                         hs.Add("AuthorizeDoorId", dt.Rows[k][2]);
-                         hs.Add("types", type);
-                         hs.Add("mchid", mchid);
-                         try
-                         {
+            //             hs.Add("Pin", dt.Rows[k][0]);
+            //             hs.Add("AuthorizeTimezoneId", dt.Rows[k][1]);
+            //             hs.Add("AuthorizeDoorId", dt.Rows[k][2]);
+            //             hs.Add("types", type);
+            //             hs.Add("mchid", mchid);
+            //             try
+            //             {
 
-                             CmsTable.AddRecord(ref pst, resid, ref hs, ref cp);
-                         }
-                         catch (Exception ex)
-                         {
-                             SLog.Err("authoritylist Error", ref ex);
-                         }
-                     }
-                     break;
-             }
+            //                 CmsTable.AddRecord(ref pst, resid, ref hs, ref cp);
+            //             }
+            //             catch (Exception ex)
+            //             {
+            //                 SLog.Err("authoritylist Error", ref ex);
+            //             }
+            //         }
+            //         break;
+            // }
         }
         public DataTable Diff(int type1, int type2, DataTable table1, DataTable table2)
         {
@@ -275,48 +279,61 @@
             base.Dispose(disposing);
         }
 
-        public string DownRecord(bool AllDown, IntPtr OneIntPtr_, int MachineID)
-        {
-            if (OneIntPtr_ != IntPtr.Zero)
-            {
-                this.keys = 0;
-                int num = 0;
-                DataTable recordTable = new DataTable();
-                this.keys = this.LibDM.M_GetDeviceData(5, 0, "", AllDown, ref recordTable, OneIntPtr_);
-                // this.LibDM.M_DeleteDeviceData(
-                if (this.keys >= 0)
-                {
-                    if (recordTable.Rows.Count > 0)
-                    {
-                        num = clsDBManager.MaxNum();
-                        recordTable.Columns.Add("num", typeof(string));
-                        recordTable.Columns.Add("SENSORID", typeof(string));
-                        foreach (DataRow row in recordTable.Rows)
-                        {
-                            row["num"] = num.ToString();
-                            row["SENSORID"] = MachineID.ToString();
-                        }
-                        SqlBulkCopy copy = new SqlBulkCopy(clsDBManager.GetSqlconn(), SqlBulkCopyOptions.UseInternalTransaction);
-                        copy.DestinationTableName = "K_CheckInOut_Tem";
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("Cardno", "Cardno"));
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("Pin", "Pin"));
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("Verified", "Verified"));
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("DoorID", "DoorID"));
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("EventType", "EventType"));
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("InOutState", "InOutState"));
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("Time_second", "Time_second"));
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("num", "num"));
-                        copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("SENSORID", "SENSORID"));
-                        copy.WriteToServer(recordTable);
-                        clsDBManager.K_CheckInOutCopy(num, 2, ref this.keys, ref this.Message);
-                        this.LibDM.M_DeleteDeviceData(5, 0, "", OneIntPtr_);
+        public string DownRecord(bool AllDown, IntPtr OneIntPtr_, int MachineID,bool del=true)
 
-                        return string.Concat(new object[] { "共下载记录：", recordTable.Rows.Count, "条，最新记录：", this.keys.ToString(), "条" });
+        {
+            try
+            {
+                if (OneIntPtr_ != IntPtr.Zero)
+                {
+                    this.keys = 0;
+                    int num = 0;
+                    DataTable recordTable = new DataTable();
+                    this.keys = this.LibDM.M_GetDeviceData(5, 0, "", AllDown, ref recordTable, OneIntPtr_);
+                    // this.LibDM.M_DeleteDeviceData(
+                    if (this.keys >= 0)
+                    {
+                        if (recordTable.Rows.Count > 0)
+                        {
+                            num = clsDBManager.MaxNum();
+                            recordTable.Columns.Add("num", typeof(string));
+                            recordTable.Columns.Add("SENSORID", typeof(string));
+                            foreach (DataRow row in recordTable.Rows)
+                            {
+                                row["num"] = num.ToString();
+                                row["SENSORID"] = MachineID.ToString();
+                            }
+                            SqlBulkCopy copy = new SqlBulkCopy(clsDBManager.GetSqlconn(), SqlBulkCopyOptions.UseInternalTransaction);
+                            copy.DestinationTableName = "K_CheckInOut_Tem";
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("Cardno", "Cardno"));
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("Pin", "Pin"));
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("Verified", "Verified"));
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("DoorID", "DoorID"));
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("EventType", "EventType"));
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("InOutState", "InOutState"));
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("Time_second", "Time_second"));
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("num", "num"));
+                            copy.ColumnMappings.Add(new SqlBulkCopyColumnMapping("SENSORID", "SENSORID"));
+                            copy.WriteToServer(recordTable);
+                            clsDBManager.K_CheckInOutCopy(num, 2, ref this.keys, ref this.Message);
+                            if (del)
+                            { this.LibDM.M_DeleteDeviceData(5, 0, "", OneIntPtr_); }
+                            // this.LibDM.M_DeleteDeviceData(5, 0, "", OneIntPtr_);
+
+                            return string.Concat(new object[] { "共下载记录：", recordTable.Rows.Count, "条，最新记录：", this.keys.ToString(), "条" });
+                        }
+                        return "无记录";
                     }
-                    return "无记录";
+                    return ("下载记录失败， Error：" + this.keys.ToString());
                 }
-                return ("下载记录失败， Error：" + this.keys.ToString());
+
             }
+            catch (Exception ex)
+            {
+
+                return  "下载记录失败， Error："+ex.InnerException.Message+ex.Source;
+            }
+           
            // Application.Exit();
             return "下载记录失败， Error：连接句柄值为空";
         }
@@ -357,7 +374,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "门禁自动服务程序20151224";
+            this.Text = "门禁自动服务程序20210321";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -376,9 +393,11 @@
             this.DoorConnTable.Columns.Add(new DataColumn("Port", typeof(string)));
             this.DoorConnTable.Columns.Add(new DataColumn("CommPassword", typeof(string)));
             this.DoorConnTable.Columns.Add(new DataColumn("ConnValues", typeof(string)));
-            DataTable table = clsDBManager.Select_HR_Machines("", "", "true", 2, "");
+            DataTable table = clsDBManager.Select_HR_Machines_new("", "", "true", 2, "");
+            clsDBManager.CreateTXT("Select_HR_MachinesNew：");
             if (table.Rows.Count > 0)
             {
+                clsDBManager.CreateTXT("Select_HR_Machines："+ table.Rows.Count.ToString());
                 foreach (DataRow row in table.Rows)
                 {
                     DoorParmeter parmeter = new DoorParmeter();
@@ -392,28 +411,64 @@
                     }
                     parmeter.Port = Convert.ToInt32(row["Port"].ToString());
                     DataRow row2 = this.DoorConnTable.NewRow();
+                    clsDBManager.CreateTXT("startconnect：" + parmeter.MacID.ToString());
                     row2["ID"] = parmeter.MacID.ToString();
                     row2["IP"] = parmeter.IP.ToString();
                     row2["MachineAlias"] = parmeter.MacName.ToString();
                     row2["Port"] = parmeter.Port.ToString();
                     row2["CommPassword"] = parmeter.PassWord.ToString();
                     this.LibDM.h = IntPtr.Zero;
+                    string add = clsDBManager.MocConn(parmeter.IP, parmeter.Port, parmeter.PassWord);
+                    clsDBManager.CreateTXT("connecting：" + add);
                     this.keys = this.LibDM.M_Connect(clsDBManager.MocConn(parmeter.IP, parmeter.Port, parmeter.PassWord));
                     if (this.keys >= 0)
                     {
                         clsDBManager.UpdateStatu(true, parmeter.MacID);
+                        clsDBManager.CreateTXT("online：" + parmeter.MacID.ToString()+"h:"+this.LibDM.h.ToString() );
+                        row2["ConnValues"] = this.LibDM.h.ToString();
                     }
                     else
                     {
                         clsDBManager.UpdateStatu(false, parmeter.MacID);
+                        clsDBManager.CreateTXT("offline：" + parmeter.MacID.ToString());
+                        clsDBManager.CreateTXT("offline h：" + this.LibDM.h.ToString());
+                        row2["ConnValues"] = this.LibDM.h.ToString();
                     }
-                    row2["ConnValues"] = this.LibDM.h.ToString();
+                 
                     this.DoorConnTable.Rows.Add(row2);
                 }
             }
+            // autoDownloadRecordInTimelist();
+            clsDBManager.CreateTXT("StartautoDownloadRecordInTimelist start"  );
+            this.StartautoDownloadRecordInTimelist.Start();
             this.ISLinkMoc = false;
         }
+        public void autoDownloadRecordInTimelist()
+        {
+            clsDBManager.CreateTXT("StartautoDownloadRecordInTimelist start2");
+            while (true)
+            {
+                clsDBManager.CreateTXT("StartautoDownloadRecordInTimelist start3");
+                if ((DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 16) || (DateTime.Now.Hour >= 16 && DateTime.Now.Hour <= 23))
+                {
+                    foreach (DataRow row in this.DoorConnTable.Rows)
+                    {
+                        clsDBManager.CreateTXT("StartautoDownloadRecordInTimelist start4");
+                        if (Convert.ToInt32(row["ID"]) == 3766)
+                        {
+                            clsDBManager.CreateTXT("StartautoDownloadRecordInTimelist start5");
+                            clsDBManager.CreateTXT("id:"+ row["ID"].ToString()+ "ConnValues:" + row["ConnValues"].ToString());
+                            string str=this.DownRecord(true, (IntPtr)Convert.ToInt32(row["ConnValues"].ToString()), Convert.ToInt32(row["ID"].ToString()),false);
+                           
+                            clsDBManager.CreateTXT(str);
+                            Thread.Sleep(60 * 1000);
+                        }
+                    }
+                }
+            }
 
+
+        }
         public void LoadRearcd()
         {
             foreach (DataRow row in this.DoorConnTable.Rows)
@@ -658,10 +713,10 @@
                                     clsDBManager.CreateTXT("结束查询系统中人员权限信息，共：" + table3.Rows.Count.ToString() + "条；");
                                     table6 = this.Diff(2, 2, table7, table3);
                                     clsDBManager.CreateTXT("结束比对设备中需要删除的人员权限信息，共：" + table6.Rows.Count.ToString() + "条；");
-                                    if (table6.Rows.Count >= 500)
+                                    if (table6.Rows.Count >= 1000)
                                     {
                                         this.keys = this.LibDM.M_DeleteDeviceData(2, 0, "", ptr);
-                                        clsDBManager.CreateTXT("结束删除设备中权限信息，由于数量大于50条，批量清空了，共清空：" + table6.Rows.Count.ToString() + "条数据；");
+                                        clsDBManager.CreateTXT("结束删除设备中权限信息，由于数量大于500条，批量清空了，共清空：" + table6.Rows.Count.ToString() + "条数据；");
                                         if (this.keys < 0)
                                         {
                                            
@@ -741,6 +796,19 @@
                                         row2[0] = "Door" + table4.Rows[k]["门编号"].ToString() + "ForcePassWord";
                                         row2[1] = table4.Rows[k]["胁迫密码"].ToString();
                                         table3.Rows.Add(row2);
+                                        ////
+                                        row2 = table3.NewRow();
+                                        row2[0] = "Door" + table4.Rows[k]["门编号"].ToString() + "VerifyType";
+                                        if (table4.Rows[k]["验证方式"].ToString() == "1")
+                                        { row2[1] = "0"; }
+                                        else
+                                        { row2[1] = "11";
+                                          clsDBManager.CreateTXT("Door" + table4.Rows[k]["门编号"].ToString() + "VerifyType=11");
+                                        }
+                                       
+                                        
+                                        table3.Rows.Add(row2);
+                                        ////
                                         row2 = table3.NewRow();
                                         row2[0] = "Door" + table4.Rows[k]["门编号"].ToString() + "SupperPassWord";
                                         row2[1] = table4.Rows[k]["紧急状态密码"].ToString();
@@ -838,8 +906,8 @@
         private void Form1_Load(object sender, EventArgs e)
         {
             button1.PerformClick();
-            HsopCmsEnvironment.InitForClientApplication(Application.StartupPath, "RealsunFormj.log", true );
-            pst = CmsPassport.GenerateCmsPassportBySysuser();
+          //  HsopCmsEnvironment.InitForClientApplication(Application.StartupPath, "RealsunFormj.log", true );
+          //  pst = CmsPassport.GenerateCmsPassportBySysuser();
 
             //if (System.Diagnostics.Process.GetProcessesByName("OneCardAutoGuard").Length <= 0)
             //{

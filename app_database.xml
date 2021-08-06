@@ -3,12 +3,14 @@
     <SYS_DATABASE DESC="数据库配置信息">
         <DATABASETYPE DESC="数据库HOST 0:mssql 3:oralce">0</DATABASETYPE>
         <DATABASECONTYPE DESC="数据库连接方式 1:oledbcon 2:oracleclientcon">1</DATABASECONTYPE>
-        <HOST DESC="数据库HOST">127.0.0.1</HOST>
-        <PORT DESC="数据库PORT">1433</PORT>
-        <DBCMS DESC="内容数据库名称">v2hr1</DBCMS>
-        <DBDOC DESC="文档数据库名称">finisarhr2</DBDOC>
+        <HOST DESC="数据库HOST">wux-hr03\hrdb</HOST>
+        <PORT DESC="数据库PORT">58560</PORT>
+        <DBCMS DESC="内容数据库名称">v2finisarhr1</DBCMS>
+        <DBDOC DESC="文档数据库名称">v2finisarhr2</DBDOC>
         <TIMEOUT DESC="数据库连接超时（秒）">15</TIMEOUT>
         <SERVICENAME DESC="Oracle 数据库服务名称">orcl</SERVICENAME>
+<PosServerIp>222.73.68.150</PosServerIp>
+		<PosServerPort>1500</PosServerPort>
     </SYS_DATABASE>
     <SYS_CLIENT SHOWENABLE="0">
         <IMPLEMENT_CODE SHOWENABLE="0"></IMPLEMENT_CODE>
